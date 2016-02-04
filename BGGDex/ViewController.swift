@@ -12,8 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-    let urlString = "https://bgg-json.azurewebsites.net/hot"
+    
+    let urlString = "https://bgg-json.azurewebsites.net/thing/"
     let session = NSURLSession.sharedSession()
     let url = NSURL(string: urlString)!
         
@@ -25,11 +25,11 @@ class ViewController: UIViewController {
                     
                     let json = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.AllowFragments)
                     if let dict = json as? Dictionary<String, AnyObject> {
-
-                        if let name = dict["name"] as? String, let rank = dict["rank"] as? Int, let gameId = dict["gameId"] as? Int, let yearPub = dict[""] as? Int, let thumbNail = dict["thumbnail"] as? String {
-                            
+                        print("Here we go")
+                        if let name = dict["name"] as? String, let rank = dict["rank"] as? Int, let gameId = dict["gameId"] as? Int, let yearPub = dict["yearPublished"] as? Int, let thumbNail = dict["thumbnail"] as? String {
+                              print("Here we go")
                             let game = Game(name: name, rank: rank, gameId: gameId, thumbNail: thumbNail, yearPub: yearPub)
-                            
+                              print("Here we go")
                             print(game.name)
                             print(game.rank)
                             print(game.gameId)
@@ -37,6 +37,7 @@ class ViewController: UIViewController {
                             print(game.thumbNail)
                             
                         }
+                        
                     }
                     } catch {
                         print("There has been a problem")

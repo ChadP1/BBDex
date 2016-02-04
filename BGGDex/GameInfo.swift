@@ -12,7 +12,6 @@ class GameInfo: Game {
     
     
     private  var _description: String!
-    private var _isExpansion: Bool!
     private var _bbgRating: Int!
     private var _minplayers: Int!
     private var _maxplayers: Int!
@@ -33,22 +32,19 @@ class GameInfo: Game {
     var maxplayers: Int {
         return _maxplayers
     }
+ 
     
-    var isExpansion: Bool {
-        return _isExpansion
-    }
-    
-    convenience init(description: String, bbgRating: Int, minplayers: Int, maxplayers: Int, isExpansion: Bool, name: String, rank: Int, gameId: Int, thumbNail: String, yearPub: Int) {
-    
-    self.init(nameGame: name, rankGame: rank, gameIdGame: gameId, thumbNailGame: thumbNail, yearPubGame = yearPub)
-    
+    convenience init(description: String, bbgRating: Int, minplayers: Int, maxplayers: Int, name: String, rank: Int, gameId: Int, thumbNail: String, yearPub: Int) {
+        
+        self.init(name: name, rank: rank, gameId: gameId, thumbNail: thumbNail, yearPub : yearPub)
+        
         _description = description
-        _isExpansion = isExpansion
+      
         _bbgRating = bbgRating
         _minplayers = minplayers
         _maxplayers = maxplayers
         
         
     }
-
+    
 }
